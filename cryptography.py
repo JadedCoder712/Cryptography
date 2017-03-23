@@ -22,6 +22,8 @@ To decrypt it, subtract the key from the encrypted message and you will have the
 See the detailed requirements at https://github.com/HHS-IntroProgramming/Cryptography/blob/master/README.md
 """
 associations = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .,:;'\"/\\<>(){}[]-=_+?!"
+
+#all the lists that need to be made for the program:
 mcombination=[] 
 kcombination=[]
 encryption=[]
@@ -31,35 +33,38 @@ kcombination1=[]
 answertolife=[]
 answermessage=[]
 
+#menu options:
 menu=input("Enter e to encrypt, d to decrypt, or q to quit: ")
 
+#q to quit option:
 if menu is "q":
     print("Goodbye!")
 
+#e to encrypt option:
 if menu is "e":
     message=input("Message: ")
     key=input("Key: ")
     messagelist=list(message)
     keylist=list(key)
-    for m in messagelist:
+    for m in messagelist:                  #turns the message into a list of index numbers
         mindexnumber=associations.find(m)
         mcombination.append(mindexnumber)
-    for k in keylist:
+    for k in keylist:                      #turns the key into a list of index numbers
         kindexnumber=associations.find(k)
         kcombination.append(kindexnumber)
-    keylength=len(keylist)
+    keylength=len(keylist)                  #finds the length of the key and message lists, respectively
     messagelength=len(messagelist)
-    if keylength < messagelength:
+    if keylength < messagelength:           #if the length of the key list is less than that of the message list, multiply the key list by the difference, rounded up
         difference=round((messagelength/keylength)+0.5)
         kcombination=kcombination*difference
-    for k in kcombination:
+    for k in kcombination:                  #creates the encryption from the key and message lists
         for m in mcombination:
-            encryption=[k + m for k, m in zip(kcombination, mcombination)]
-    for x in encryption:
+            encryption=[k + m for k, m in zip(kcombination, mcombination)] 
+    for x in encryption:                    #turns the encryption into actual letters
         finallyletters=associations[x]
         encryptedmessage.append(finallyletters)
-    encryptedmessage="".join(encryptedmessage)
-    print(encryptedmessage)
+    encryptedmessage="".join(encryptedmessage)  #turns it from a list to a string
+    print(encryptedmessage)                     #prints string
     
 """
 print(mcombination)
@@ -68,28 +73,30 @@ print(encryption)
 """
 
 
+#d to decrypt option
 if menu is "d":
     message1=input("Message: ")
     key1=input("Key: ")
     messagelist1=list(message1)
     keylist1=list(key1)
-    for m in messagelist1:
+    for m in messagelist1:          #turns encrypted message list into appropriate index numbers
         mindexnumber1=associations.find(m)
         mcombination1.append(mindexnumber1)
-    for k in keylist1:
+    for k in keylist1:              #turns key list into appropriate index numbers
         kindexnumber1=associations.find(k)
         kcombination1.append(kindexnumber1)
-    keylength1=len(keylist1)
-    messagelength1=len(messagelist1)
-    if keylength1 < messagelength1:
+    keylength1=len(keylist1)        #takes the key list length
+    messagelength1=len(messagelist1)  #takes the encrypted message list length
+    if keylength1 < messagelength1: #if the key list length is less than the encrypted message list length, find the multiplication difference through division and multiply the answer to the key
         difference1=round((messagelength1/keylength1)+0.5)
         kcombination1=kcombination1*difference1
-    answertolife=[m-k for m, k in zip(mcombination1, kcombination1)]
-    for x in answertolife:
+    answertolife=[m-k for m, k in zip(mcombination1, kcombination1)]    #creates the message from the key and the message lists by subtracting the numbers
+    for x in answertolife:                              #turns the index numbers into letters and adds them to a list
         finallyletters1=associations[x]
         answermessage.append(finallyletters1)
-    answermessage="".join(answermessage)
+    answermessage="".join(answermessage)        #turns it from a list into a string
     print(answermessage)
+    
     
         
         
