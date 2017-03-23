@@ -1,7 +1,7 @@
 """
 cryptography.py
-Author: <your name here>
-Credit: <list sources used, if any>
+Author: Kyle Postans
+Credit: Mr. Dennison, Kyle Postans
 
 Assignment:
 
