@@ -60,6 +60,9 @@ if menu is "e":
     for k in kcombination:                  #creates the encryption from the key and message lists
         for m in mcombination:
             encryption=[k + m for k, m in zip(kcombination, mcombination)] 
+    for n, a in enumerate(encryption):      #erases numbers post-addition that are too large to turn into characters in the index 
+        if a > 85:
+            encryption[n]=(a-85)
     for x in encryption:                    #turns the encryption into actual letters
         finallyletters=associations[x]
         encryptedmessage.append(finallyletters)
@@ -96,8 +99,7 @@ if menu is "d":
         answermessage.append(finallyletters1)
     answermessage="".join(answermessage)        #turns it from a list into a string
     print(answermessage)
-    
-    
+   
         
         
     
