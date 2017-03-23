@@ -36,6 +36,10 @@ length=len(associations)
 
 #menu options:
 menu=input("Enter e to encrypt, d to decrypt, or q to quit: ")
+server=menu
+
+if menu is "TEST":
+    menu="e"
 
 #q to quit option:
 if menu is "q":
@@ -44,8 +48,12 @@ if menu is "q":
 
 #e to encrypt option:
 if menu is "e":
-    message=input("Message: ")
-    key=input("Key: ")
+    if server is not "TEST":
+        message=input("Message: ")
+        key=input("Key: ")
+    if server is "TEST":
+        message="generic message"
+        key="password"
     messagelist=list(message)
     keylist=list(key)
     for m in messagelist:                  #turns the message into a list of index numbers
@@ -69,7 +77,10 @@ if menu is "e":
         finallyletters=associations[x]
         encryptedmessage.append(finallyletters)
     encryptedmessage="".join(encryptedmessage)  #turns it from a list to a string
-    print(encryptedmessage)                     #prints string
+    if server is not "TEST":
+        print(encryptedmessage)                     #prints string
+    if server is "TEST":
+        menu="d"
     
 """
 print(mcombination)
@@ -80,8 +91,12 @@ print(encryption)
 
 #d to decrypt option
 if menu is "d":
-    message1=input("Message: ")
-    key1=input("Key: ")
+    if server is not "TEST":
+        message1=input("Message: ")
+        key1=input("Key: ")
+    if server is "TEST":
+        message1="veFwNwt:BeKKwuv"
+        key1="password"
     messagelist1=list(message1)
     keylist1=list(key1)
     for m in messagelist1:          #turns encrypted message list into appropriate index numbers
@@ -103,7 +118,12 @@ if menu is "d":
         finallyletters1=associations[x]
         answermessage.append(finallyletters1)
     answermessage="".join(answermessage)        #turns it from a list into a string
-    print(answermessage)
+    if server is not "TEST":
+        print(answermessage)
+    if server is "TEST":
+        if answermessage==message:
+            print("All good here, sir.")
+
 
    
    
