@@ -32,6 +32,7 @@ mcombination1=[]
 kcombination1=[]
 answertolife=[]
 answermessage=[]
+length=len(associations)
 
 #menu options:
 menu=input("Enter e to encrypt, d to decrypt, or q to quit: ")
@@ -94,12 +95,23 @@ if menu is "d":
         difference1=round((messagelength1/keylength1)+0.5)
         kcombination1=kcombination1*difference1
     answertolife=[m-k for m, k in zip(mcombination1, kcombination1)]    #creates the message from the key and the message lists by subtracting the numbers
+    for n, a in enumerate(answertolife):
+        if a < 0:
+            answertolife[n]=(a+85)
     for x in answertolife:                              #turns the index numbers into letters and adds them to a list
         finallyletters1=associations[x]
         answermessage.append(finallyletters1)
     answermessage="".join(answermessage)        #turns it from a list into a string
     print(answermessage)
    
+   
+
+
+   
+   
+   
+   
+
         
         
     
