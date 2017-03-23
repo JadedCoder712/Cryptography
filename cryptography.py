@@ -41,6 +41,7 @@ menu=input("Enter e to encrypt, d to decrypt, or q to quit: ")
 if menu is "q":
     print("Goodbye!")
 
+
 #e to encrypt option:
 if menu is "e":
     message=input("Message: ")
@@ -103,6 +104,7 @@ if menu is "d":
         answermessage.append(finallyletters1)
     answermessage="".join(answermessage)        #turns it from a list into a string
     print(answermessage)
+
    
    
 
