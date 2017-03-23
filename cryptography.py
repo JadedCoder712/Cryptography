@@ -24,6 +24,7 @@ See the detailed requirements at https://github.com/HHS-IntroProgramming/Cryptog
 associations = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .,:;'\"/\\<>(){}[]-=_+?!"
 mcombination=[] 
 kcombination=[]
+encryption=[]
 
 menu=input("Enter e to encrypt, d to decrypt, or q to quit: ")
 
@@ -41,14 +42,18 @@ if menu is "e":
     for k in keylist:
         kindexnumber=associations.find(k)
         kcombination.append(kindexnumber)
-    if len(keylist) < len(messagelist):
-        
-        
+    keylength=len(keylist)
+    messagelength=len(messagelist)
+    if keylength < messagelength:
+        difference=round((messagelength/keylength)+0.5)
+        kcombination=kcombination*difference
+    for k in kcombination:
+        for m in mcombination:
+            encryption=[k + m for k, m in zip(kcombination, mcombination)]
 print(mcombination)
 print(kcombination)
-        
-
-    
+print(encryption)
+            
 
 
 if menu is "d":
