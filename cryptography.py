@@ -38,6 +38,7 @@ length=len(associations)
 menu=input("Enter e to encrypt, d to decrypt, or q to quit: ")
 server=menu
 
+#[[Special Test Function]]] that triggers the encryption menu, then enters set message and key, activates the decryption and enters output of encryption function, goes through decryption, and checks the output against the original message
 if menu is "TEST":
     menu="e"
 
@@ -95,7 +96,7 @@ if menu is "d":
         message1=input("Message: ")
         key1=input("Key: ")
     if server is "TEST":
-        message1="veFwNwt:BeKKwuv"
+        message1=encryptedmessage
         key1="password"
     messagelist1=list(message1)
     keylist1=list(key1)
