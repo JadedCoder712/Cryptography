@@ -41,7 +41,8 @@ if menu is "e":
     for k in keylist:
         kindexnumber=associations.find(k)
         kcombination.append(kindexnumber)
-    if len(
+    if len(keylist) < len(messagelist):
+        
         
 print(mcombination)
 print(kcombination)
