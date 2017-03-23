@@ -42,11 +42,6 @@ server=menu
 if menu is "TEST":
     menu="e"
 
-#q to quit option:
-if menu is "q":
-    print("Goodbye!")
-
-
 #e to encrypt option:
 if menu is "e":
     if server is not "TEST":
@@ -79,7 +74,8 @@ if menu is "e":
         encryptedmessage.append(finallyletters)
     encryptedmessage="".join(encryptedmessage)  #turns it from a list to a string
     if server is not "TEST":
-        print(encryptedmessage)                     #prints string
+        print(encryptedmessage)                   #prints string
+        menu=input("Enter e to encrypt, d to decrypt, or q to quit: ")
     if server is "TEST":
         menu="d"
     
@@ -121,9 +117,16 @@ if menu is "d":
     answermessage="".join(answermessage)        #turns it from a list into a string
     if server is not "TEST":
         print(answermessage)
+        menu=input("Enter e to encrypt, d to decrypt, or q to quit: ")
     if server is "TEST":
         if answermessage==message:
             print("All good here, sir.")
+
+#q to quit option:
+if menu is "q":
+    print("Goodbye!")
+
+
 
 
    
