@@ -38,6 +38,9 @@ length=len(associations)
 menu=input("Enter e to encrypt, d to decrypt, or q to quit: ")
 server=menu
 
+if menu is not "e" or "q" or "d" or "TEST":
+    print("Did not understand command, try again.")
+    menu=input("Enter e to encrypt, d to decrypt, or q to quit: ")
 #[[Special Test Function]]] that triggers the encryption menu, then enters set message and key, activates the decryption and enters output of encryption function, goes through decryption, and checks the output against the original message
 if menu is "TEST":
     menu="e"
