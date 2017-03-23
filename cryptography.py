@@ -40,7 +40,8 @@ server=menu
 
 if menu is not "e" or "q" or "d" or "TEST":
     print("Did not understand command, try again.")
-    menu=input("Enter e to encrypt, d to decrypt, or q to quit: ")
+    #menu=input("Enter e to encrypt, d to decrypt, or q to quit: ")
+    
 #[[Special Test Function]]] that triggers the encryption menu, then enters set message and key, activates the decryption and enters output of encryption function, goes through decryption, and checks the output against the original message
 if menu is "TEST":
     menu="e"
@@ -78,7 +79,7 @@ if menu is "e":
     encryptedmessage="".join(encryptedmessage)  #turns it from a list to a string
     if server is not "TEST":
         print(encryptedmessage)                   #prints string
-        menu=input("Enter e to encrypt, d to decrypt, or q to quit: ")
+        #menu=input("Enter e to encrypt, d to decrypt, or q to quit: ")
     if server is "TEST":
         menu="d"
     
@@ -120,7 +121,7 @@ if menu is "d":
     answermessage="".join(answermessage)        #turns it from a list into a string
     if server is not "TEST":
         print(answermessage)
-        menu=input("Enter e to encrypt, d to decrypt, or q to quit: ")
+        #menu=input("Enter e to encrypt, d to decrypt, or q to quit: ")
     if server is "TEST":
         if answermessage==message:
             print("All good here, sir.")
