@@ -25,6 +25,7 @@ associations = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .
 mcombination=[] 
 kcombination=[]
 encryption=[]
+encryptedmessage=[]
 
 menu=input("Enter e to encrypt, d to decrypt, or q to quit: ")
 
@@ -50,11 +51,16 @@ if menu is "e":
     for k in kcombination:
         for m in mcombination:
             encryption=[k + m for k, m in zip(kcombination, mcombination)]
+    for x in encryption:
+        finallyletters=associations[x]
+        encryptedmessage.append(finallyletters)
+    
+encryptedmessage="".join(encryptedmessage) 
 print(mcombination)
 print(kcombination)
 print(encryption)
+print(encryptedmessage)
             
-
 
 if menu is "d":
     message1=input("Message: ")
