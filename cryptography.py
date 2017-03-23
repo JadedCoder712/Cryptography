@@ -26,6 +26,10 @@ mcombination=[]
 kcombination=[]
 encryption=[]
 encryptedmessage=[]
+mcombination1=[]
+kcombination1=[]
+answertolife=[]
+answermessage=[]
 
 menu=input("Enter e to encrypt, d to decrypt, or q to quit: ")
 
@@ -54,15 +58,39 @@ if menu is "e":
     for x in encryption:
         finallyletters=associations[x]
         encryptedmessage.append(finallyletters)
+    encryptedmessage="".join(encryptedmessage)
+    print(encryptedmessage)
     
-encryptedmessage="".join(encryptedmessage) 
+"""
 print(mcombination)
 print(kcombination)
 print(encryption)
-print(encryptedmessage)
-            
+"""
+
 
 if menu is "d":
     message1=input("Message: ")
     key1=input("Key: ")
+    messagelist1=list(message1)
+    keylist1=list(key1)
+    for m in messagelist1:
+        mindexnumber1=associations.find(m)
+        mcombination1.append(mindexnumber1)
+    for k in keylist1:
+        kindexnumber1=associations.find(k)
+        kcombination1.append(kindexnumber1)
+    keylength1=len(keylist1)
+    messagelength1=len(messagelist1)
+    if keylength1 < messagelength1:
+        difference1=round((messagelength1/keylength1)+0.5)
+        kcombination1=kcombination1*difference1
+    answertolife=[m-k for m, k in zip(mcombination1, kcombination1)]
+    for x in answertolife:
+        finallyletters1=associations[x]
+        answermessage.append(finallyletters1)
+    answermessage="".join(answermessage)
+    print(answermessage)
+    
+        
+        
     
