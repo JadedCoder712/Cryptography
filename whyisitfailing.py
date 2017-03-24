@@ -39,7 +39,7 @@ while truth is True:
     answertolife=[]
     answermessage=[]
     length=len(associations)
-
+    
     
     menu=input("Enter e to encrypt, d to decrypt, or q to quit: ")
 
@@ -80,6 +80,8 @@ while truth is True:
             encryptedmessage.append(finallyletters)
         encryptedmessage="".join(encryptedmessage)  #turns it from a list to a string
         print(encryptedmessage)                    #prints string
+        
+        
     #d to decrypt option
     if menu is "d":
         message1=input("Message: ")
