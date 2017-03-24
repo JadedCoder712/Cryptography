@@ -24,40 +24,38 @@ See the detailed requirements at https://github.com/HHS-IntroProgramming/Cryptog
 associations = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .,:;'\"/\\<>(){}[]-=_+?!"
 
 #all the lists that need to be made for the program:
-mcombination=[] 
-kcombination=[]
-encryption=[]
-encryptedmessage=[]
-mcombination1=[]
-kcombination1=[]
-answertolife=[]
-answermessage=[]
-length=len(associations)
 
 #menu options:
+truth=True
 
-menu=input("Enter e to encrypt, d to decrypt, or q to quit: ")
-server=menu
-
-while menu is not "terminate":
+while truth is True:
 #[[Special Test Function]]] that triggers the encryption menu, then enters set message and key, activates the decryption and enters output of encryption function, goes through decryption, and checks the output against the original message
-    if menu is "TEST":
-     menu="e"
+    mcombination=[] 
+    kcombination=[]
+    encryption=[]
+    encryptedmessage=[]
+    mcombination1=[]
+    kcombination1=[]
+    answertolife=[]
+    answermessage=[]
+    length=len(associations)
 
-#q to quit option:
+    
+    menu=input("Enter e to encrypt, d to decrypt, or q to quit: ")
+
+    if menu not in ["q", "e", "d"]:
+        print("Wrong")
+        
+    #q to quit option:
     if menu is "q":
-       print("Goodbye!")
-       menu="terminate"
+        print("Goodbye!")
+        truth=False
+    
 
-
-#e to encrypt option:
+    #e to encrypt option:
     if menu is "e":
-      if server is not "TEST":
         message=input("Message: ")
         key=input("Key: ")
-        if server is "TEST":
-            message="generic message"
-            key="password"
         messagelist=list(message)
         keylist=list(key)
         for m in messagelist:                  #turns the message into a list of index numbers
@@ -81,19 +79,11 @@ while menu is not "terminate":
             finallyletters=associations[x]
             encryptedmessage.append(finallyletters)
         encryptedmessage="".join(encryptedmessage)  #turns it from a list to a string
-        if server is not "TEST":
-            print(encryptedmessage)                    #prints string
-        #menu=input("Enter e to encrypt, d to decrypt, or q to quit: ")
-            if server is "TEST":
-                menu="d"
-#d to decrypt option
+        print(encryptedmessage)                    #prints string
+    #d to decrypt option
     if menu is "d":
-        if server is not "TEST":
-            message1=input("Message: ")
-            key1=input("Key: ")
-        if server is "TEST":
-            message1=encryptedmessage
-            key1="password"
+        message1=input("Message: ")
+        key1=input("Key: ")
         messagelist1=list(message1)
         keylist1=list(key1)
         for m in messagelist1:          #turns encrypted message list into appropriate index numbers
@@ -115,10 +105,5 @@ while menu is not "terminate":
             finallyletters1=associations[x]
             answermessage.append(finallyletters1)
         answermessage="".join(answermessage)        #turns it from a list into a string
-        if server is not "TEST":
-            print(answermessage)
-        #menu=input("Enter e to encrypt, d to decrypt, or q to quit: ")
-        if server is "TEST":
-            if answermessage==message:
-                print("All good here, sir.")
-
+        print(answermessage)
+        
