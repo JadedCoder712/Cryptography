@@ -44,7 +44,7 @@ while truth is True:
     menu=input("Enter e to encrypt, d to decrypt, or q to quit: ")
 
     if menu not in ["q", "e", "d"]:
-        print("Wrong")
+        print("Did not understand command, try again.")
         
     #q to quit option:
     if menu is "q":
