@@ -27,7 +27,9 @@ associations = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .
 
 #menu options:
 truth=True
-
+if truth==False:
+    truth=True
+    
 while truth is True:
 #[[Special Test Function]]] that triggers the encryption menu, then enters set message and key, activates the decryption and enters output of encryption function, goes through decryption, and checks the output against the original message
     mcombination=[] 
